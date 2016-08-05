@@ -181,7 +181,7 @@ loaders: [{
 
 **外部依赖**
 
-现在假如该例子中需要用到angular，首先在```index.html```中通过<script>标签引入angular库，然后修改```mymodule.js```如下：
+现在假如该例子中需要用到angular，首先在```index.html```中通过script标签引入angular库，然后修改```mymodule.js```如下：
 
 ```
 var angular = require('angular');
