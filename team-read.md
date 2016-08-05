@@ -39,7 +39,7 @@ $ npm install webpack --save-dev #将webpack增加到package.json文件中
 ```
 
 ##6.配置
-每个项目下都必须配置有一个 webpack.config.js,它的作用如同常规的 gulpfile.js/Gruntfile.js,就是一个配置项，告诉webpack它需要做什么
+每个项目下都必须配置有一个```webpack.config.js```,它的作用如同常规的```gulpfile.js/Gruntfile.js```,就是一个配置项，告诉webpack它需要做什么
 
 ###An example
 ```
@@ -78,15 +78,15 @@ module.exports = {
     }
 };
 ```
--plugins 是插件项，这里我们使用了一个 CommonsChunkPlugin的插件，它用于提取多个入口文件的公共脚本部分，然后生成一个 common.js 来方便多页面之间进行复用。
+-plugins 是插件项，这里我们使用了一个 CommonsChunkPlugin的插件，它用于提取多个入口文件的公共脚本部分，然后生成一个```common.js``` 来方便多页面之间进行复用。
 -entry 是页面入口文件配置，output 是对应输出项配置 （即入口文件最终要生成什么名字的文件、存放到哪里）
 -module.loaders 是最关键的一块配置。它告知 webpack 每一种文件都需要使用什么加载器来处理。 所有加载器需要使用npm来加载
 -最后是 resolve 配置，配置查找模块的路径和扩展名和别名（方便书写）
 
 ## 7.使用
 
-1.新建entry.js   和   mymodule.js
-'''
+1.新建```entry.js```   和  ``` mymodule.js```
+```
 //main.js   入口文件
 require('./mymodule.js')();
 
@@ -94,7 +94,7 @@ require('./mymodule.js')();
 module.exports = function() {
     document.write('hello webpack');
 };
-'''
+```
 2.index.html
 ```
 <!DOCTYPE html>
@@ -108,12 +108,12 @@ module.exports = function() {
 </body>
 </html>
 ```
-3.执行,可在浏览器中看到预期效果app.js 为生成的打包文件
+3.执行,可在浏览器中看到预期效果```app.js``` 为生成的打包文件
 ```
 $ webpack ./main.js app.js
 ```
 
-4.配置文件.每次手动输入源文件名和输出文件名比较麻烦，可以使用配置文件来进行管理。在app目录下新建webpack.config.js文件，内容如下：
+4.配置文件.每次手动输入源文件名和输出文件名比较麻烦，可以使用配置文件来进行管理。在app目录下新建```webpack.config.js```文件，内容如下：
 ```
 module.exports = {
     entry: './main.js',
@@ -140,20 +140,20 @@ module.exports = {
 
 很多模块打包工具只是针对js文件，而webpack的强大之处在于将模块的概念进行了扩展，认为一切静态文件都是模块，包括css、html模板、字体、CoffeeScript等等。虽然webpack本身依然是只能够处理js文件，但是通过一系列的loader，就可以处理其它文件了。
 
-下面以css-loader和style-loader为例，演示如何打包样式文件。
+下面以```css-loader```和```style-loader```为例，演示如何打包样式文件。
 
 1.执行命令安装依赖模块：
 ```
 npm install css-loader style-loader --save-dev      # 安装的时候不使用 -g
 ```
 
-2.新建style.css
+2.新建```style.css```
 ```
 body {
 background: yellow;
 }
 ```
-3.修改main.js
+3.修改```main.js```
 ```
 require('./mymodule.js')();
 require('style!css!./style.css');
